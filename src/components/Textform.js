@@ -32,6 +32,9 @@ export default function Textform(props) {
         setText(e.target.value)
     }
     const [text,setText] = useState("Enter text here")
+    const copyText = ()=>{
+        navigator.clipboard.writeText(text)
+    }
     // setText("Enter text in here")
     return (
         <>
@@ -52,6 +55,7 @@ export default function Textform(props) {
                 <button className='btn btn-primary m-1' onClick={changeUpper}>Convert to Uppercase</button>
                 <button className='btn btn-primary m-1' onClick={()=>{setText(text.toLowerCase())}}>Convert to Lowercase</button>
                 <button className='btn btn-primary m-1' onClick={()=>{setText(text.trim())}}>Trim</button>
+                <button className='btn btn-primary m-1' onClick={copyText}>Copy Text</button>
                 <button className='btn btn-dark m-1' onClick={toggleStyle}>{btntext} Dark Mode</button>
             </div>
         </div>
